@@ -27,5 +27,7 @@ vi foo.txt
 /High
 ```
 < Search in multiple occurences
+```
 n
 shift + n
+```
