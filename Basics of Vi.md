@@ -22,3 +22,7 @@ vi security-report.json
 ```bash
 vi foo.txt
 ```
+> Search using /
+```bash 
+/High
+```
