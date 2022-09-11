@@ -26,3 +26,6 @@ vi foo.txt
 ```bash 
 /High
 ```
+< Search in multiple occurences
+n
+shift + n
