@@ -33,6 +33,10 @@ docker exec myubuntu whoami
 docker exec -it myubuntu bash
 docker exec myubuntu cat /etc/lsb-release
 ```
+>stop and start docker container
+```bash
+docker stop webserver && docker rm webserver
+```
 > Check Docker Status
 ```bash
 docker ps -a
