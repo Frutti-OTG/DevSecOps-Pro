@@ -45,4 +45,19 @@ docker ps -a
 ```bash
 docker top myubuntu
 ```
-
+> Download Source Code
+```bash 
+git clone https://gitlab.practical-devsecops.training/pdso/django.nv.git
+```
+> Build Docker Image
+```bash
+docker build -t django.nv:1.0 .
+```
+> See Docker Imager
+```bash
+docker images
+```
+> docker rename images
+```bash
+docker tag django.nv:1.0 django.nv:1.1
+```
