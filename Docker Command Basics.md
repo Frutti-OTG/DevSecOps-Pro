@@ -61,3 +61,19 @@ docker images
 ```bash
 docker tag django.nv:1.0 django.nv:1.1
 ```
+> Manage Volune of docker container
+```bash
+docker volume --help
+```
+> List available volumes on your system
+```bash
+docker volume ls
+```
+> Create a new volume
+```bash
+docker volume create data
+```
+> run a contaner with file
+```bash
+docker run --name volumemount -v data:/src ubuntu:18.04 "/bin/bash" "-c" "echo test>>/src/hello.txt"
+```
