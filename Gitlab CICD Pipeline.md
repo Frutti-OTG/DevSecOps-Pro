@@ -32,4 +32,5 @@ prod:
   stage: prod
   script:
     - echo "This is a deploy step."
+  when: manual   #<-- A human has to click a button (play button in Gitlab) for this task to
  ```
