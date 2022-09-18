@@ -2,31 +2,31 @@
 Notes for future / Exam
 
 ```bash
-# This is how a comment is added to a YAML file; please read them carefully.
+sstages:   # Dictionary
+ - build   # this is build stage
+ - test    # this is test stage
+ - integration # this is an integration stage
+ - prod       # this is prod/production stage
 
-stages:         # Dictionary
- - build        # this is build stage
- - test         # this is test stage
- - integration  # this is an integration stage
- - prod         # this is prod/production stage
-
-job1:
-  stage: build  # this job belongs to the build stage.
+build:       # this is job named build, it can be anything, job1, job2, etc.,
+  stage: build    # this job belongs to the build stage. Here both job name and stage name is the same i.e., build
   script:
-    - echo "This is a build step."  # We are running an echo command, but it can be any command.
+    - echo "This is a build step"  # We are running an echo command, but it can be any command.
 
-job2:
+test:
   stage: test
   script:
     - echo "This is a test step."
-    - exit 1          # Non zero exit code, fails a job.
+    - exit 1         # Non zero exit code, fails a job.
+  allow_failure: true   #<--- allow the build to fail, but don't mark it as such
 
-job3:          # stage integration.
+
+integration:        # integration job under stage integration.
   stage: integration
   script:
-    - echo "This is an integration step."
+    - echo "This is an integration step"
 
-job4:
+prod:
   stage: prod
   script:
     - echo "This is a deploy step."
