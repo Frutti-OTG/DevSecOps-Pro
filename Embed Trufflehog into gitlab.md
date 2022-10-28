@@ -41,6 +41,23 @@ test:
 git-secrets:
   stage: build
   script:
-    - docker pull hysnsec/trufflehog
-    - docker run --user $(id -u):$(id -g) -v $(pwd):/src --rm hysnsec/trufflehog file:///src
+    - docker run -v $(pwd):/src --rm hysnsec/trufflehog --repo_path /src file:///src --json | tee trufflehog-output.json
+  artifacts:
+    paths: [trufflehog-output.json]
+    when: always  # What is this for?
+    expire_in: one week
+  allow_failure: true
+
+integration:
+  stage: integration
+  script:
+    - echo "This is an integration step"
+    - exit 1
+  allow_failure: true # Even if the job fails, continue to the next stages
+
+prod:
+  stage: prod
+  script:
+    - echo "This is a deploy step."
+  when: manual # Continuous Delivery
 ```
