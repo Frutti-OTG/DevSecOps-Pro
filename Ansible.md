@@ -30,3 +30,13 @@ ansible -i inventory.ini prod --list-hosts
 ```bash
 ansible-doc -l
 ```
+
+> Use the Ansible command module to find shell module
+```bash
+ansible-doc -l | grep shell
+```
+
+> Use inventory file (-i inventory.ini) and run the uptime command on the production machine using shell module
+```bash
+ansible -i inventory.ini prod -m shell -a "uptime"
+```
