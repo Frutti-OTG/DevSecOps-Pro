@@ -40,3 +40,30 @@ ansible-doc -l | grep shell
 ```bash
 ansible -i inventory.ini prod -m shell -a "uptime"
 ```
+
+> Let’s create a playbook to run against the production environment.
+```bash 
+cat > playbook.yml <<EOL
+---
+- name: Example playbook to install firewalld
+  hosts: prod
+  remote_user: root
+  become: yes
+  gather_facts: no
+  vars:
+    state: present
+
+  tasks:
+  - name: ensure firewalld is at the latest version
+    apt:
+      name: firewalld
+
+EOL
+```
+
+> Let’s run this playbook against the prod machine.
+```bash
+ansible-playbook -i inventory.ini playbook.yml
+```
+
+
